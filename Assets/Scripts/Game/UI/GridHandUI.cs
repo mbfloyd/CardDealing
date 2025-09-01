@@ -6,13 +6,12 @@ public class GridHandUI : MonoBehaviour, IHandUI
 {
     public RowUI rowPrefab; 
 
-    private int maxRows = 3;
     private int maxPerRowSpots = 4;
     private List<RowUI> rowList = new List<RowUI>();
 
     public void CreateSpots(int dealAmount)
     {
-        Clear();
+        ClearSpots();
 
         int numRows = Mathf.CeilToInt(((float)dealAmount / maxPerRowSpots));
 
@@ -59,7 +58,7 @@ public class GridHandUI : MonoBehaviour, IHandUI
         return null;
     }
 
-    public void Clear()
+    public void ClearSpots()
     {
         for (int loop = 0; loop < rowList.Count; loop++)
         {

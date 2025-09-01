@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IHandUI
 {
-    public void Clear();
+    public void ClearSpots();
 
     public List<SpotUI> GetSpots();
     public void CreateSpots(int dealAmount);

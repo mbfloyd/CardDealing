@@ -7,7 +7,7 @@ using System;
 
 public class CardUI : MonoBehaviour, IPointerClickHandler
 {
-    public Action<Card> onRemove;
+    public Action<CardUI> onRemove;
 
     public GameObject front;
     public GameObject back;
@@ -16,10 +16,17 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 
     private Card card;
 
+    private string poolNotation = "- Pool";
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log(card + " clicked!");
+    }
+
+    public Card getCard()
+    {
+        return card;
     }
 
     public void SetCard(Card c)
@@ -42,8 +49,18 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 
     public void Remove()
     {
-        GameObject.Destroy(gameObject);
-        onRemove?.Invoke(card);
+        gameObject.SetActive(false);
+        onRemove?.Invoke(this);
+    }
+
+    public void AddedToPool()
+    {
+        gameObject.name += poolNotation;
+    }
+
+    public void RemovedFromPool()
+    {
+        gameObject.name = gameObject.name.Replace(poolNotation, "");
     }
     
     private void UpdateFaceText()

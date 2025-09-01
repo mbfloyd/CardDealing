@@ -1,21 +1,21 @@
 using UnityEngine;
 
-public class DataManager
+public class DataManager :IDataManager
 {
-    private Deck _deck;
+    private DeckService deckService;
+
     private int maxDealtCards = 12;
 
     private int dealtCards = 0;
 
     public DataManager()
     {
-        _deck = new Deck();
+        deckService = new DeckService();
     }
 
-
-    public Deck GetDeck()
+    public DeckService GetDeckService()
     {
-        return _deck;
+        return deckService;
     }
 
     public void DealtCards(int cards)

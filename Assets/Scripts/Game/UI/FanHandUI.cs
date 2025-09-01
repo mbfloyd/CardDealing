@@ -10,7 +10,7 @@ public class FanHandUI : MonoBehaviour, IHandUI
 
     public void CreateSpots(int dealAmount)
     {
-        Clear();
+        ClearSpots();
         for (int loop = 0; loop < dealAmount; loop++)
         {
             SpotUI spot = CreateSpot();
@@ -41,7 +41,7 @@ public class FanHandUI : MonoBehaviour, IHandUI
         return null;
     }
 
-    public void Clear()
+    public void ClearSpots()
     {
         for (int loop = 0; loop < spotList.Count; loop++)
         {
